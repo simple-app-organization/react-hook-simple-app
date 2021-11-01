@@ -1,5 +1,4 @@
 import React from 'react';
-import sanitizeHtml from 'sanitize-html';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 

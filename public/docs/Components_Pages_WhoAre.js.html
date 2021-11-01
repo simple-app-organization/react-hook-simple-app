@@ -27,7 +27,7 @@
 
 <nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="AboutSection.html">AboutSection</a></li><li><a href="AboutSectionMenu.html">AboutSectionMenu</a></li><li><a href="Contact.html">Contact</a></li><li><a href="ContactConfirm.html">ContactConfirm</a></li><li><a href="Error.html">Error</a></li><li><a href="Footer.html">Footer</a></li><li><a href="FormValidateMessage.html">FormValidateMessage</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="HomeMessage.html">HomeMessage</a></li><li></li><li><a href="NotFound.html">NotFound</a></li><li><a href="Person.html">Person</a></li><li></li><li><a href="Place.html">Place</a></li><li></li><li><a href="SiteRoutes.html">SiteRoutes</a></li><li><a href="WhereAre.html">WhereAre</a></li><li><a href="WhoAre.html">WhoAre</a></li></ul><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#siteName">siteName</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="AboutSection.html">AboutSection</a></li><li><a href="AboutSectionMenu.html">AboutSectionMenu</a></li><li><a href="Contact.html">Contact</a></li><li><a href="Error.html">Error</a></li><li><a href="Footer.html">Footer</a></li><li><a href="FormValidateMessage.html">FormValidateMessage</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="HomeMessage.html">HomeMessage</a></li><li></li><li><a href="module.exports.html">exports</a></li><li><a href="NotFound.html">NotFound</a></li><li><a href="Person.html">Person</a></li><li></li><li><a href="Place.html">Place</a></li><li></li><li><a href="SiteRoutes.html">SiteRoutes</a></li><li><a href="WhereAre.html">WhereAre</a></li><li><a href="WhoAre.html">WhoAre</a></li></ul><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#siteName">siteName</a></li></ul>
 </nav>
 
 <div id="main">
@@ -42,14 +42,14 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React, { Component } from 'react';
+            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from 'react';
 import AboutSectionMenu from './../Partials/AboutSectionMenu';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
-import sanitizeHtml from 'sanitize-html';
+import ListGroup from 'react-bootstrap/ListGroup';
+import Badge from 'react-bootstrap/Badge';
 
 import { people as data } from './../../data/people';
 import Person from './../../Models/Person';
@@ -63,70 +63,65 @@ import Person from './../../Models/Person';
  *   &lt;WhoAre />
  * )
  */
-class WhoAre extends Component {
-    
-    constructor(props) {
-        super(props);
-        this.state = {
-            people: [],
-            currentPersonId: undefined,
-            hasError: false,
-        };
-        // this.onShowPerson = this.onShowPerson.bind(this);
+const WhoAre = () => {
+
+    const [people, setPeople] = useState([]);
+    const [currentPersonId, setCurrentPersonId] = useState(undefined);
+    const [hasError, setHasError] = useState(false);
+
+    useEffect(() => {
+        try {
+            const _people = [];
+            data.map(person => _people.push(new Person(person.id, person.name, person.surname, person.shortbio, person.email, person.profilesrc)));
+            let _currentPersonId = undefined;
+            if (_people &amp;&amp; _people.length > 0) _currentPersonId = _people[0].id;
+            setPeople(_people);
+            setCurrentPersonId(_currentPersonId);
+            setHasError(false);
+        } catch {
+            setHasError(true);
+        }
+    }, []);
+
+    const onShowPerson = (personId) => {
+        setCurrentPersonId(personId);
     }
 
-    componentDidMount() {
-        const people = [];
-        data.map(person => people.push(new Person(person.id, person.name, person.surname, person.shortbio, person.email, person.profilesrc)));
-        let currentPersonId = undefined;
-        if (people &amp;&amp; people.length > 0) currentPersonId = people[0].id;
-        this.setState({ people, currentPersonId });
-    }
-
-    static getDerivedStateFromError(error) {       
-        return { hasError: true };  
-    }
-
-    onShowPerson = (personId) => {
-        this.setState({ currentPersonId: personId });
-    }
-
-    render() {
-        const { people, currentPersonId, hasError } = this.state;
-        return (
-            &lt;>
-                {hasError ? &lt;h1>Something went wrong.&lt;/h1> : null}
-                &lt;div className="page">
-                    &lt;Container>
-                        &lt;Row>
-                            &lt;Col sm={8}>
-                                &lt;Jumbotron className="page whoare">
-                                    &lt;h2>Who Are&lt;/h2>
-                                    &lt;p>This is the who are page&lt;/p>
-                                    &lt;hr />
-                                    {people &amp;&amp; people.length > 0 ?
-                                        &lt;ul>
-                                            {people.map(person =>
-                                                &lt;li>
-                                                    {person.name} {person.surname}
-                                                    &lt;Button onClick={() => this.onShowPerson(person.id)}>show details&lt;/Button>
-                                                &lt;/li>)}
-                                        &lt;/ul> : null}
-                                &lt;/Jumbotron>
-                            &lt;/Col>
-                            &lt;Col sm={4}>
+    return (
+        &lt;>
+            {hasError ? &lt;h1>Something went wrong.&lt;/h1> : null}
+            &lt;div className="page">
+                &lt;Container>
+                    &lt;Row>
+                        &lt;Col sm={8}>
+                            &lt;Jumbotron className="page whoare">
+                                &lt;h2>Who Are&lt;/h2>
+                                &lt;p>This is the who are page&lt;/p>
+                                &lt;hr />
+                                &lt;p>
+                                    Nunc vitae gravida sem. Mauris erat velit, dapibus sit amet mi et, scelerisque tristique lorem. Quisque bibendum ligula et augue rhoncus hendrerit. Sed pharetra ligula quis leo accumsan eleifend. Pellentesque iaculis iaculis odio lobortis fermentum. Integer nec tincidunt odio, ornare aliquet eros. Nam vestibulum suscipit mauris, a consequat augue bibendum eu. Aenean viverra efficitur neque, sagittis mollis neque imperdiet vitae. Ut consectetur tristique risus, ut sodales nisi feugiat vel. Quisque tincidunt convallis consequat. Fusce malesuada sem et tortor fringilla lacinia. Nam elementum ligula vel luctus consectetur. Suspendisse sit amet egestas purus, vitae tristique dui. Sed convallis metus ac finibus sagittis. In nulla neque, facilisis in ex nec, pulvinar lobortis augue. 
+                                &lt;/p>
                                 {people &amp;&amp; people.length > 0 ?
-                                    people.map(person => (person.id === currentPersonId) ?
-                                        person.toDisplay() : null) 
-                                    : null}
-                            &lt;/Col>
-                        &lt;/Row>
-                    &lt;/Container>
-                    &lt;AboutSectionMenu />
-                &lt;/div>
-            &lt;/>
-        );
-    }
+                                    &lt;ListGroup>
+                                    {people.map((person, index) =>
+                                        &lt;ListGroup.Item key={index} action onClick={() => onShowPerson(person.id)}>
+                                        {person.name} {person.surname} &lt;Badge variant="secondary">show details&lt;/Badge>
+                                        &lt;/ListGroup.Item>)}
+                                        &lt;/ListGroup> : null}
+                            &lt;/Jumbotron>
+                        &lt;/Col>
+                        &lt;Col sm={4}>
+                            {people &amp;&amp; people.length > 0 ?
+                                people.map(person => (person.id === currentPersonId) ?
+                                    person.toDisplay() : null) 
+                                : null}
+                        &lt;/Col>
+                    &lt;/Row>
+                &lt;/Container>
+                &lt;AboutSectionMenu />
+            &lt;/div>
+        &lt;/>
+    );
 }
 
 export default WhoAre;</code></pre>
@@ -143,7 +138,7 @@ export default WhoAre;</code></pre>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Sat Mar 21 2020 10:05:56 GMT+0100 (Central European Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Mon Nov 01 2021 10:46:49 GMT+0100 (Central European Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

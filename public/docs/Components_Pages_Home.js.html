@@ -27,7 +27,7 @@
 
 <nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="AboutSection.html">AboutSection</a></li><li><a href="AboutSectionMenu.html">AboutSectionMenu</a></li><li><a href="Contact.html">Contact</a></li><li><a href="ContactConfirm.html">ContactConfirm</a></li><li><a href="Error.html">Error</a></li><li><a href="Footer.html">Footer</a></li><li><a href="FormValidateMessage.html">FormValidateMessage</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="HomeMessage.html">HomeMessage</a></li><li></li><li><a href="NotFound.html">NotFound</a></li><li><a href="Person.html">Person</a></li><li></li><li><a href="Place.html">Place</a></li><li></li><li><a href="SiteRoutes.html">SiteRoutes</a></li><li><a href="WhereAre.html">WhereAre</a></li><li><a href="WhoAre.html">WhoAre</a></li></ul><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#siteName">siteName</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="AboutSection.html">AboutSection</a></li><li><a href="AboutSectionMenu.html">AboutSectionMenu</a></li><li><a href="Contact.html">Contact</a></li><li><a href="Error.html">Error</a></li><li><a href="Footer.html">Footer</a></li><li><a href="FormValidateMessage.html">FormValidateMessage</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="HomeMessage.html">HomeMessage</a></li><li></li><li><a href="module.exports.html">exports</a></li><li><a href="NotFound.html">NotFound</a></li><li><a href="Person.html">Person</a></li><li></li><li><a href="Place.html">Place</a></li><li></li><li><a href="SiteRoutes.html">SiteRoutes</a></li><li><a href="WhereAre.html">WhereAre</a></li><li><a href="WhoAre.html">WhoAre</a></li></ul><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#siteName">siteName</a></li></ul>
 </nav>
 
 <div id="main">
@@ -42,10 +42,9 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React, { Component } from 'react';
+            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from 'react';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Carousel from 'react-bootstrap/Carousel';
-import sanitizeHtml from 'sanitize-html';
 
 import { home_messages as data } from './../../data/home_messages';
 import HomeMessage from './../../Models/HomeMessage';
@@ -59,46 +58,39 @@ import HomeMessage from './../../Models/HomeMessage';
  *   &lt;Home />
  * )
  */
-class Home extends Component {
+const Home = () => {
+
+    const [messages, setMessages] = useState([]);
+    const [hasError, setHasError] = useState(false);
+
+    useEffect(() => {
+        try {
+            const _messages = [];
+            data.map(message => _messages.push(new HomeMessage(message.id, message.title, message.text, message.imagesrc)));
+            setMessages(_messages);
+            setHasError(false);
+        } catch {
+            setHasError(true);
+        }
+    }, []);
     
-    constructor(props) {
-        super(props);
-        this.state = {
-            messages: [],
-            hasError: false,
-        };
-    }        
-
-    componentDidMount() {
-        const messages = [];
-        data.map(message => messages.push(new HomeMessage(message.id, message.title, message.text, message.imagesrc)));
-        this.setState({ messages });
-    }
-
-    static getDerivedStateFromError(error) {       
-        return { hasError: true };  
-    }    
-
-    render() {
-        const { messages, hasError } = this.state;
-        return (
-            &lt;>
-                {hasError ? &lt;h1>Something went wrong.&lt;/h1> : null}
-                &lt;div className="page">
-                    &lt;Jumbotron className="page home">
-                        &lt;h2>Home page&lt;/h2>
-                        &lt;p>This is the home page&lt;/p>
-                        &lt;hr />
-                        {messages &amp;&amp; messages.length > 0 ?
-                            &lt;Carousel>
-                                {messages.map(message => message.toDisplay())}
-                            &lt;/Carousel>
-                            : null }
-                    &lt;/Jumbotron>
-                &lt;/div>
-            &lt;/>
-        );
-    }
+    return (
+        &lt;>
+            {hasError ? &lt;h1>Something went wrong.&lt;/h1> : null}
+            &lt;div className="page">
+                &lt;Jumbotron className="page home">
+                    &lt;h2>Home page&lt;/h2>
+                    &lt;p>This is the home page&lt;/p>
+                    &lt;hr />
+                    {messages &amp;&amp; messages.length > 0 ?
+                        &lt;Carousel>
+                            {messages.map(message => message.toDisplay())}
+                        &lt;/Carousel>
+                        : null }
+                &lt;/Jumbotron>
+            &lt;/div>
+        &lt;/>
+    );
 }
 
 export default Home;</code></pre>
@@ -115,7 +107,7 @@ export default Home;</code></pre>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Sat Mar 21 2020 10:05:56 GMT+0100 (Central European Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Mon Nov 01 2021 10:46:49 GMT+0100 (Central European Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

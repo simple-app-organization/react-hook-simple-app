@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 
 /**
@@ -10,17 +10,16 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
  *   <NotFound />
  * )
  */
-class NotFound extends Component {
-    render() {
-        return (
-            <div className="page">
-                <Jumbotron className="page notfound">
-                    <h2>404 Page not found</h2>
-                    <p>The page is not found</p>
-                </Jumbotron>
-            </div>
-        );
-    }
+const NotFound = () => {
+    
+    return (
+        <div className="page">
+            <Jumbotron className="page notfound">
+                <h2>404 Page not found</h2>
+                <p>The page is not found</p>
+            </Jumbotron>
+        </div>
+    );
 }
 
 export default NotFound;

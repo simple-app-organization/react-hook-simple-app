@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 
 /**
@@ -10,17 +10,15 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
  *   <Error />
  * )
  */
-class Error extends Component {
-    render() {
-        return (
-            <div className="page">
-                <Jumbotron className="page error">
-                    <h2>Error Page</h2>
-                    <p>Sorry, there are some errors...</p>
-                </Jumbotron>
-            </div>
-        );
-    }
+const Error = () => {
+    return (
+        <div className="page">
+            <Jumbotron className="page error">
+                <h2>Error Page</h2>
+                <p>Sorry, there are some errors...</p>
+            </Jumbotron>
+        </div>
+    );
 }
 
 export default Error;

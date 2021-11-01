@@ -15,7 +15,7 @@ const Footer = () => {
                 This is the footer
             </p>
             <p>
-                This site is store in <a target="_blank" href="https://github.com/Magicianred/react-simple-app">GitHub Repository </a>.
+                This site is store in <a target="_blank" rel="noopener noreferrer" href="https://github.com/Magicianred/react-simple-app">GitHub Repository </a>.
             </p>
             <p>
                 It is a test in <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">React </a>

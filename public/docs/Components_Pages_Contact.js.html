@@ -27,7 +27,7 @@
 
 <nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="AboutSection.html">AboutSection</a></li><li><a href="AboutSectionMenu.html">AboutSectionMenu</a></li><li><a href="Contact.html">Contact</a></li><li><a href="ContactConfirm.html">ContactConfirm</a></li><li><a href="Error.html">Error</a></li><li><a href="Footer.html">Footer</a></li><li><a href="FormValidateMessage.html">FormValidateMessage</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="HomeMessage.html">HomeMessage</a></li><li></li><li><a href="NotFound.html">NotFound</a></li><li><a href="Person.html">Person</a></li><li></li><li><a href="Place.html">Place</a></li><li></li><li><a href="SiteRoutes.html">SiteRoutes</a></li><li><a href="WhereAre.html">WhereAre</a></li><li><a href="WhoAre.html">WhoAre</a></li></ul><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#siteName">siteName</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="AboutSection.html">AboutSection</a></li><li><a href="AboutSectionMenu.html">AboutSectionMenu</a></li><li><a href="Contact.html">Contact</a></li><li><a href="Error.html">Error</a></li><li><a href="Footer.html">Footer</a></li><li><a href="FormValidateMessage.html">FormValidateMessage</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="HomeMessage.html">HomeMessage</a></li><li></li><li><a href="module.exports.html">exports</a></li><li><a href="NotFound.html">NotFound</a></li><li><a href="Person.html">Person</a></li><li></li><li><a href="Place.html">Place</a></li><li></li><li><a href="SiteRoutes.html">SiteRoutes</a></li><li><a href="WhereAre.html">WhereAre</a></li><li><a href="WhoAre.html">WhoAre</a></li></ul><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#siteName">siteName</a></li></ul>
 </nav>
 
 <div id="main">
@@ -42,15 +42,15 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React, { Component } from 'react';
+            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from 'react';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Badge from 'react-bootstrap/Badge';
 import _ from 'lodash';
-import sanitizeHtml from 'sanitize-html';
 
 import FormValidateMessage from './../Utils/FormValidateMessage';
 
@@ -63,189 +63,231 @@ import FormValidateMessage from './../Utils/FormValidateMessage';
  *   &lt;Contact />
  * )
  */
-class Contact extends Component {
-    
-    constructor(props) {
-        super(props);
-        this.state = {
-            firstName: undefined,
-            lastName: undefined,
-            email: undefined,
-            message: undefined,
-            privacy: false,
-            hasError: false,
-            errorsData: [],
-        };
+const Contact = () => {
+
+    const [firstName, setFirstName] = useState(undefined);
+    const [lastName, setLastName] = useState(undefined);
+    const [email, setEmail] = useState(undefined);
+    const [message, setMessage] = useState(undefined);
+    const [privacy, setPrivacy] = useState(undefined);
+    const [hasError, ] = useState(false);
+    const [errorsData, setErrorsData] = useState([]);
+
+    const [validatedData, setValidatedData] = useState(undefined);
+
+    useEffect(() => {
+        setInitialDataErrors();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    const setInitialDataErrors = () => {
+        const _errorsData = [];
+        const message = "Field is required";
+        _errorsData.push({ "field": "firstName", "message": message });
+        _errorsData.push({ "field": "lastName", "message": message });
+        _errorsData.push({ "field": "email", "message": "Field is empty or invalid" });
+        _errorsData.push({ "field": "message", "message": message });
+        _errorsData.push({ "field": "privacy", "message": message });
+        setErrorsData(errorsData);
     }
 
-    static getDerivedStateFromError(error) {       
-        return { hasError: true };  
+    const setInvalidField = (fieldName, message = "Field is empty or invalid") => {
+        const _errorsData = errorsData;
+        _errorsData.push({ "field": fieldName, "message": message });
+        setErrorsData(_errorsData);
     }
 
-    setInvalidField(fieldName, message = "Field is empty or invalid" ) {
-        let { errorsData } = this.state;
-        errorsData.push({ "field": fieldName, "message": message });
-        this.setState({ errorsData });
+    const setValidField = (fieldName) => {
+        const _errorsData = _.remove(errorsData, (item) => item.field === fieldName);
+        setErrorsData(_errorsData);
     }
 
-    setValidField(fieldName) {
-        let { errorsData } = this.state;
-        errorsData = _.remove(errorsData, (item) => item.field === fieldName);
-        this.setState({ errorsData });
+    const getErrorField = (fieldName) => {
+        const _errorsData = errorsData.find(element => element.field === fieldName);
+        return _errorsData;
     }
 
-    getErrorField = (fieldName) => {
-        const { errorsData } = this.state;
-        const element = errorsData.find(element => element.field === fieldName);
-        return element;
-    }
-
-    validateData = (fieldName, value) => {
-        const { errorsData } = this.state;
+    const validateData = (fieldName, value) => {
         const element = errorsData.find(element => element.field === fieldName);
         switch(fieldName) {
             case 'email':
                 const isValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
                 if (!isValid) {
                     if (element === undefined) {
-                        this.setInvalidField(fieldName, "Email is invalid");
+                        setInvalidField(fieldName, "Email is invalid");
                     }
                 } else {
-                    this.setValidField(fieldName);
+                    setValidField(fieldName);
                 }
                 break;
             case 'privacy':
                 if (!value) {
                     if (element === undefined) {
-                        this.setInvalidField(fieldName, "You have to check privacy policy");
+                        setInvalidField(fieldName, "You have to check privacy policy");
                     }
                 } else {
-                    this.setValidField(fieldName);
+                    setValidField(fieldName);
                 }
                 break;
             default:
                 if (!value || value === '') {
                     if (element === undefined) {
-                        this.setInvalidField(fieldName);
+                        setInvalidField(fieldName);
                     }
                 } else {
-                    this.setValidField(fieldName);
+                    setValidField(fieldName);
                 }
                 break;
         }
     }
 
-    handleChange = (evt) => {
+    const handleChange = (evt) => {
         const name = evt.target.name || evt.target.id;
         const value = evt.target.type === "checkbox" ? evt.target.checked : evt.target.value;
-        this.validateData(name, value);
-        this.setState({ ...this.state, [name]: value });
-    }
+        validateData(name, value);
 
-    onSendMessage = (evt) => {
-        const { errorsData } = this.state;
-        // evt.preventDefault();
-        const { firstName, lastName } = this.state;
-        if (!(errorsData || errorsData.length > 0)) {
-            window.location.assign(`/contact/confirm?name=${firstName}&amp;surname=${lastName}`);
+        switch(name) {
+            case 'firstName':
+                setFirstName(value);
+                break;
+            case 'lastName':
+                setLastName(value);
+                break;
+            case 'email':
+                setEmail(value);
+                break;
+            case 'message':
+                setMessage(value);
+                break;
+            case 'privacy':
+                setPrivacy(value);
+                break;
+            default:
+                break;
         }
     }
 
-    render() {
-        const { firstName, lastName, email, message, privacy, hasError, errorsData } = this.state;
-        const validatedData = !(errorsData &amp;&amp; errorsData.length > 0);
-        return (
-            &lt;>
-                {hasError ? &lt;h1>Something went wrong.&lt;/h1> : null}
-                {validatedData ? &lt;h1>Tutti i dati corretti.&lt;/h1> : null}
-                &lt;div className="page">
-                    &lt;Container>
-                        &lt;Row>
-                            &lt;Col sm={6}>
-                                {errorsData &amp;&amp; errorsData.length > 0 ? &lt;div>You have errors in form&lt;/div> : null}
-                                &lt;Form noValidate validated={validatedData} >
-                                    &lt;Row>
-                                        &lt;Col>
-                                            &lt;Form.Group controlId="firstName">
-                                                &lt;Form.Label>First Name&lt;/Form.Label>
-                                                &lt;Form.Control required placeholder="First name" onChange={this.handleChange} />
-                                                {errorsData &amp;&amp; this.getErrorField("firstName") ?
-                                                    &lt;FormValidateMessage errormessage={this.getErrorField("firstName").message} /> 
-                                                        : null }
-                                            &lt;/Form.Group>
-                                        &lt;/Col>
-                                        &lt;Col>
-                                            &lt;Form.Group controlId="lastName">
-                                                &lt;Form.Label>Last Name&lt;/Form.Label>
-                                                &lt;Form.Control placeholder="Last name" onChange={this.handleChange} />
-                                                {errorsData &amp;&amp; this.getErrorField("lastName") ?
-                                                    &lt;FormValidateMessage errormessage={this.getErrorField("lastName").message} /> 
-                                                        : null }
-                                            &lt;/Form.Group>
-                                        &lt;/Col>
-                                    &lt;/Row>
-                                    &lt;Row>
-                                        &lt;Col>
-                                            &lt;Form.Group controlId="email">
-                                                &lt;Form.Label>Email address&lt;/Form.Label>
-                                                &lt;Form.Control type="email" placeholder="Enter your email" onChange={this.handleChange} />
-                                                {errorsData &amp;&amp; this.getErrorField("email") ?
-                                                    &lt;FormValidateMessage errormessage={this.getErrorField("email").message} /> 
-                                                        : null } 
-                                                    {!errorsData &amp;&amp; !this.getErrorField("email") ?
-                                                        &lt;Form.Text className="text-muted">
-                                                            We can use this email for reply to you
-                                                        &lt;/Form.Text> : null }
-                                            &lt;/Form.Group>
+    // const onSendMessage = (evt) => {
+    //     if (!(errorsData || errorsData.length > 0)) {
+    //         window.location.assign(`/contact/confirm?name=${firstName}&amp;surname=${lastName}`);
+    //     }
+    // }
 
-                                            &lt;Form.Group controlId="message">
-                                                &lt;Form.Label>Say something to us&lt;/Form.Label>
-                                                &lt;Form.Control as="textarea" rows="3" onChange={this.handleChange} />
-                                                {errorsData &amp;&amp; this.getErrorField("message") ?
-                                                    &lt;FormValidateMessage errormessage={this.getErrorField("message").message} /> 
-                                                        : null }
-                                            &lt;/Form.Group>
+    const handleSubmit = event => {
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+        } else {
+            window.location.assign(`/contact/confirm?name=${firstName}&amp;surname=${lastName}`);
+        }
+    };
 
-                                            &lt;Form.Group controlId="privacy">
-                                                &lt;Form.Check type="checkbox" label="Accept your privacy condition" onChange={this.handleChange} />
-                                                {errorsData &amp;&amp; this.getErrorField("privacy") ?
-                                                    &lt;FormValidateMessage errormessage={this.getErrorField("privacy").message} /> 
-                                                        : null }
-                                            &lt;/Form.Group>
-                                            &lt;Button disabled={!validatedData} variant="primary" type="button" onClick={() => this.onSendMessage()}>
-                                                Send message
-                                            &lt;/Button>
-                                        &lt;/Col>
-                                    &lt;/Row>
-                                &lt;/Form>
-                            &lt;/Col>
-                            &lt;Col sm={6}>
-                                &lt;Jumbotron className="contact">
-                                    &lt;h2>Contact page&lt;/h2>
-                                    &lt;p>This is the contact page&lt;/p>
-                                    &lt;div>
-                                        &lt;h4>Your data&lt;/h4>
-                                        &lt;dl>
-                                            &lt;dt>First name&lt;/dt>
-                                            &lt;dd>{firstName}&lt;/dd>
-                                            &lt;dt>Last name&lt;/dt>
-                                            &lt;dd>{lastName}&lt;/dd>
-                                            &lt;dt>Email&lt;/dt>
-                                            &lt;dd>{email}&lt;/dd>
-                                            &lt;dt>Message&lt;/dt>
-                                            &lt;dd>&lt;p>{message}&lt;/p>&lt;/dd>
-                                            &lt;dt>Privacy&lt;/dt>
-                                            &lt;dd>{privacy ? "yes" : "no"}&lt;/dd>
-                                        &lt;/dl>
-                                    &lt;/div>
-                                &lt;/Jumbotron>
-                            &lt;/Col>
-                        &lt;/Row>
-                    &lt;/Container>
-                &lt;/div>
-            &lt;/>
-        );
-    }
+    useEffect(() => {
+        const _validatedData = !(!errorsData || (errorsData &amp;&amp; errorsData.length > 0));
+        setValidatedData(_validatedData);
+    }, [errorsData]);
+    
+    return (
+        &lt;>
+            {/* {validatedData ? &lt;Badge variant="success">Dati OK&lt;/Badge> : &lt;Badge variant="danger">Dati NON&lt;/Badge> } */}
+            {hasError ? &lt;h1>&lt;Badge variant="danger">Something went wrong.&lt;/Badge>&lt;/h1> : null}
+            &lt;div className="page">
+                &lt;Container>
+                    &lt;Row>
+                        &lt;Col sm={12}>
+                            &lt;h2>Contact page&lt;/h2>
+                            &lt;p>This is the contact page&lt;/p>
+                            &lt;hr />
+                        &lt;/Col>
+                    &lt;/Row>
+                    &lt;Row>
+                        &lt;Col sm={6}>
+                            &lt;Form noValidate validated={validatedData} >
+                                &lt;Row>
+                                    &lt;Col>
+                                        &lt;Form.Group controlId="firstName">
+                                            &lt;Form.Label>First Name&lt;/Form.Label>
+                                            &lt;Form.Control required placeholder="First name" onChange={handleChange} />
+                                            {errorsData &amp;&amp; getErrorField("firstName") ?
+                                                &lt;FormValidateMessage errormessage={getErrorField("firstName").message} /> 
+                                                    : null }
+                                        &lt;/Form.Group>
+                                    &lt;/Col>
+                                    &lt;Col>
+                                        &lt;Form.Group controlId="lastName">
+                                            &lt;Form.Label>Last Name&lt;/Form.Label>
+                                            &lt;Form.Control required placeholder="Last name" onChange={handleChange} />
+                                            {errorsData &amp;&amp; getErrorField("lastName") ?
+                                                &lt;FormValidateMessage errormessage={getErrorField("lastName").message} /> 
+                                                    : null }
+                                        &lt;/Form.Group>
+                                    &lt;/Col>
+                                &lt;/Row>
+                                &lt;Row>
+                                    &lt;Col>
+                                        &lt;Form.Group controlId="email">
+                                            &lt;Form.Label>Email address&lt;/Form.Label>
+                                            &lt;Form.Control required type="email" placeholder="Enter your email" onChange={handleChange} />
+                                            {errorsData &amp;&amp; getErrorField("email") ?
+                                                &lt;FormValidateMessage errormessage={getErrorField("email").message} /> 
+                                                    : null } 
+                                                {!errorsData &amp;&amp; !getErrorField("email") ?
+                                                    &lt;Form.Text className="text-muted">
+                                                        We can use this email for reply to you
+                                                    &lt;/Form.Text> : null }
+                                        &lt;/Form.Group>
+
+                                        &lt;Form.Group controlId="message">
+                                            &lt;Form.Label>Say something to us&lt;/Form.Label>
+                                            &lt;Form.Control required as="textarea" rows="3" onChange={handleChange} />
+                                            {errorsData &amp;&amp; getErrorField("message") ?
+                                                &lt;FormValidateMessage errormessage={getErrorField("message").message} /> 
+                                                    : null }
+                                        &lt;/Form.Group>
+
+                                        &lt;Form.Group controlId="privacy">
+                                            &lt;Form.Check required type="checkbox" label="Accept your privacy condition" onChange={handleChange} />
+                                            {errorsData &amp;&amp; getErrorField("privacy") ?
+                                                &lt;FormValidateMessage errormessage={getErrorField("privacy").message} /> 
+                                                    : null }
+                                        &lt;/Form.Group>
+                                        {/* {validatedData ? &lt;Badge variant="success">All data is correct!&lt;/Badge> : null} */}
+                                        &lt;Button disabled={!validatedData} variant="primary" type="button" onClick={(e) => handleSubmit(e)}>
+                                            Send message
+                                        &lt;/Button>&lt;br />
+                                        {errorsData &amp;&amp; errorsData.length > 0 ? &lt;Badge variant="danger">You have errors in form&lt;/Badge> : null}
+                                    &lt;/Col>
+                                &lt;/Row>
+                            &lt;/Form>
+                        &lt;/Col>
+                        &lt;Col sm={6}>
+                            &lt;Jumbotron className="contact">
+                                &lt;div>
+                                    &lt;p>
+                                        This form do not send any emails, this is only for a test purpose.
+                                    &lt;/p>
+                                    &lt;h4>Show the data you would send&lt;/h4>
+                                    &lt;dl>
+                                        &lt;dt>First name&lt;/dt>
+                                        &lt;dd>{firstName}&lt;/dd>
+                                        &lt;dt>Last name&lt;/dt>
+                                        &lt;dd>{lastName}&lt;/dd>
+                                        &lt;dt>Email&lt;/dt>
+                                        &lt;dd>{email}&lt;/dd>
+                                        &lt;dt>Message&lt;/dt>
+                                        &lt;dd>&lt;p>{message}&lt;/p>&lt;/dd>
+                                        &lt;dt>Privacy&lt;/dt>
+                                        &lt;dd>{privacy ? "yes" : "no"}&lt;/dd>
+                                    &lt;/dl>
+                                &lt;/div>
+                            &lt;/Jumbotron>
+                        &lt;/Col>
+                    &lt;/Row>
+                &lt;/Container>
+            &lt;/div>
+        &lt;/>
+    );
 }
 
 export default Contact;</code></pre>
@@ -262,7 +304,7 @@ export default Contact;</code></pre>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Sat Mar 21 2020 10:05:56 GMT+0100 (Central European Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Mon Nov 01 2021 10:46:49 GMT+0100 (Central European Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

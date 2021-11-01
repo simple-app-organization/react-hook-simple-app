@@ -27,7 +27,7 @@
 
 <nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="AboutSection.html">AboutSection</a></li><li><a href="AboutSectionMenu.html">AboutSectionMenu</a></li><li><a href="Contact.html">Contact</a></li><li><a href="ContactConfirm.html">ContactConfirm</a></li><li><a href="Error.html">Error</a></li><li><a href="Footer.html">Footer</a></li><li><a href="FormValidateMessage.html">FormValidateMessage</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="HomeMessage.html">HomeMessage</a></li><li></li><li><a href="NotFound.html">NotFound</a></li><li><a href="Person.html">Person</a></li><li></li><li><a href="Place.html">Place</a></li><li></li><li><a href="SiteRoutes.html">SiteRoutes</a></li><li><a href="WhereAre.html">WhereAre</a></li><li><a href="WhoAre.html">WhoAre</a></li></ul><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#siteName">siteName</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="AboutSection.html">AboutSection</a></li><li><a href="AboutSectionMenu.html">AboutSectionMenu</a></li><li><a href="Contact.html">Contact</a></li><li><a href="Error.html">Error</a></li><li><a href="Footer.html">Footer</a></li><li><a href="FormValidateMessage.html">FormValidateMessage</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="HomeMessage.html">HomeMessage</a></li><li></li><li><a href="module.exports.html">exports</a></li><li><a href="NotFound.html">NotFound</a></li><li><a href="Person.html">Person</a></li><li></li><li><a href="Place.html">Place</a></li><li></li><li><a href="SiteRoutes.html">SiteRoutes</a></li><li><a href="WhereAre.html">WhereAre</a></li><li><a href="WhoAre.html">WhoAre</a></li></ul><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#siteName">siteName</a></li></ul>
 </nav>
 
 <div id="main">
@@ -42,15 +42,15 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React, { Component } from 'react';
+            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from 'react';
 import AboutSectionMenu from './../Partials/AboutSectionMenu';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import Accordion from 'react-bootstrap/Accordion';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
-import sanitizeHtml from 'sanitize-html';
+import Badge from 'react-bootstrap/Badge';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 import { places as data } from './../../data/places';
 import Place from './../../Models/Place';
@@ -64,67 +64,57 @@ import Place from './../../Models/Place';
  *   &lt;WhereAre />
  * )
  */
-class WhereAre extends Component {
-    
-    constructor(props) {
-        super(props);
-        this.state = {
-            places: [],
-            currentPlaceId: undefined,
-            hasError: false,
-        };
-    }
+const WhereAre = () => {
 
-    componentDidMount() {
-        const places = [];
-        data.map(place => places.push(new Place(place.id, place.title, place.address, place.country, place.phone, place.description)));
-        this.setState({ places });
-    }
+    const [places, setPlaces] = useState([]);
+    const [hasError, setHasError] = useState(false);
 
-    static getDerivedStateFromError(error) {       
-        return { hasError: true };  
-    }
+    useEffect(() => {
+        try {
+            const _places = [];
+            data.map(place => _places.push(new Place(place.id, place.title, place.address, place.country, place.phone, place.description)));
+            setPlaces(_places);
+            setHasError(false);
+        } catch {
+            setHasError(true);
+        }
+    }, []);
 
-    onShowPlace = (placeId) => {
-        this.setState({ currentPlaceId: placeId });
-    }
-
-    render() {
-        const { places, currentPlaceId, hasError } = this.state;
-        return (
-            &lt;>
-                {hasError ? &lt;h1>Something went wrong.&lt;/h1> : null}
-                &lt;div className="page">
-                    &lt;Container>
-                        &lt;Row>
-                            &lt;Col sm={4}>
+    return (
+        &lt;>
+            {hasError ? &lt;h1>Something went wrong.&lt;/h1> : null}
+            &lt;div className="page">
+                &lt;Container>
+                    &lt;Row>
+                        &lt;Col sm={8}>
+                            &lt;Jumbotron className="page whereare">
+                                &lt;h2>Where Are&lt;/h2>
+                                &lt;p>This is the where are page&lt;/p>
+                                &lt;hr />
+                                &lt;p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut est non mauris iaculis vulputate. Vivamus luctus sapien et nisl mattis consequat. Vestibulum nec varius sem. Curabitur aliquet sapien in diam efficitur euismod. Fusce molestie nibh vel suscipit eleifend. Suspendisse dignissim et lectus at tempus. Nam feugiat lorem ut pharetra porta. Duis hendrerit hendrerit metus, vel laoreet libero commodo sed. Curabitur nunc eros, venenatis et diam a, hendrerit volutpat neque. Aliquam tempus cursus efficitur. Proin consequat fringilla massa, vitae imperdiet nibh feugiat at. Nulla malesuada vestibulum dolor et euismod. Donec eu urna urna.
+                                &lt;/p>
+                                &lt;p>
+                                    Sed imperdiet nunc eget ante aliquam auctor. Aliquam rhoncus quam sed sodales imperdiet. Aliquam erat volutpat. Sed mattis luctus pretium. Suspendisse tempor, nunc quis consectetur aliquam, metus orci porttitor augue, nec malesuada ipsum mauris eget tortor. Donec ut eleifend lorem. Quisque sagittis fermentum suscipit. Sed quis efficitur ex.
+                                &lt;/p>
                                 {places &amp;&amp; places.length > 0 ?
-                                    &lt;Accordion defaultActiveKey="0">
-                                        {places.map(place => place.toDisplay())}
-                                    &lt;/Accordion> : null}
-                            &lt;/Col>
-                            &lt;Col sm={8}>
-                                &lt;Jumbotron className="page whereare">
-                                    &lt;h2>Where Are&lt;/h2>
-                                    &lt;p>This is the where are page&lt;/p>
-                                    &lt;hr />
-                                    {places &amp;&amp; places.length > 0 ?
-                                        &lt;ul>
-                                            {places.map(place =>
-                                                &lt;li>
-                                                    {place.title} {place.country}
-                                                    {/* &lt;Button onClick={() => this.onShowPlace(place.id)}>show details&lt;/Button> */}
-                                                &lt;/li>)}
-                                        &lt;/ul> : null}
-                                &lt;/Jumbotron>
-                            &lt;/Col>
-                        &lt;/Row>
-                    &lt;/Container>
-                    &lt;AboutSectionMenu />
-                &lt;/div>
-            &lt;/>
-        );
-    }
+                                    &lt;ListGroup variant="flush">
+                                        {places.map((place, index) =>&lt;ListGroup.Item key={index}>{place.title} &lt;Badge variant="info">{place.country}&lt;/Badge>&lt;/ListGroup.Item>)}
+                                    &lt;/ListGroup> : null}
+                            &lt;/Jumbotron>
+                        &lt;/Col>
+                        &lt;Col sm={4}>
+                            {places &amp;&amp; places.length > 0 ?
+                                &lt;Accordion defaultActiveKey="0">
+                                    {places.map((place, index) => place.toDisplay(index))}
+                                &lt;/Accordion> : null}
+                        &lt;/Col>
+                    &lt;/Row>
+                &lt;/Container>
+                &lt;AboutSectionMenu />
+            &lt;/div>
+        &lt;/>
+    );
 }
 
 export default WhereAre;</code></pre>
@@ -141,7 +131,7 @@ export default WhereAre;</code></pre>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Sat Mar 21 2020 10:05:56 GMT+0100 (Central European Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Mon Nov 01 2021 10:46:49 GMT+0100 (Central European Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

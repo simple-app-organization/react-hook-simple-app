@@ -16,6 +16,7 @@ exports[`Show the Footer site Snapshots Matches the snapshot (with default param
     This site is store in 
     <a
       href="https://github.com/Magicianred/react-simple-app"
+      rel="noopener noreferrer"
       target="_blank"
     >
       GitHub Repository 

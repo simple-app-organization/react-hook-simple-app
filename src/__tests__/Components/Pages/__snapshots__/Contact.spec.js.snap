@@ -54,15 +54,6 @@ exports[`Show the Contact Us page Snapshots Matches the snapshot (with default t
                   placeholder="First name"
                   required={true}
                 />
-                <small
-                  className="text-muted form-text"
-                >
-                  <span
-                    className="badge badge-danger"
-                  >
-                    Field is required
-                  </span>
-                </small>
               </div>
             </div>
             <div
@@ -84,15 +75,6 @@ exports[`Show the Contact Us page Snapshots Matches the snapshot (with default t
                   placeholder="Last name"
                   required={true}
                 />
-                <small
-                  className="text-muted form-text"
-                >
-                  <span
-                    className="badge badge-danger"
-                  >
-                    Field is required
-                  </span>
-                </small>
               </div>
             </div>
           </div>
@@ -119,15 +101,6 @@ exports[`Show the Contact Us page Snapshots Matches the snapshot (with default t
                   required={true}
                   type="email"
                 />
-                <small
-                  className="text-muted form-text"
-                >
-                  <span
-                    className="badge badge-danger"
-                  >
-                    Field is empty or invalid
-                  </span>
-                </small>
               </div>
               <div
                 className="form-group"
@@ -145,15 +118,6 @@ exports[`Show the Contact Us page Snapshots Matches the snapshot (with default t
                   required={true}
                   rows="3"
                 />
-                <small
-                  className="text-muted form-text"
-                >
-                  <span
-                    className="badge badge-danger"
-                  >
-                    Field is required
-                  </span>
-                </small>
               </div>
               <div
                 className="form-group"
@@ -177,15 +141,6 @@ exports[`Show the Contact Us page Snapshots Matches the snapshot (with default t
                     Accept your privacy condition
                   </label>
                 </div>
-                <small
-                  className="text-muted form-text"
-                >
-                  <span
-                    className="badge badge-danger"
-                  >
-                    Field is required
-                  </span>
-                </small>
               </div>
               <button
                 className="btn btn-primary"
@@ -196,11 +151,6 @@ exports[`Show the Contact Us page Snapshots Matches the snapshot (with default t
                 Send message
               </button>
               <br />
-              <span
-                className="badge badge-danger"
-              >
-                You have errors in form
-              </span>
             </div>
           </div>
         </form>
