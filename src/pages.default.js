@@ -1,0 +1,1 @@
+[{ title:"Home Page", name:"home", path:"/", component:"Home" }]

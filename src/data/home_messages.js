@@ -1,0 +1,4 @@
+export const home_messages = [
+    { id: 1, title: "Welcome to new site!", text: "We are glade to present you our new web site", imagesrc: "https://picsum.photos/200/100" },
+    { id: 3, title: "Lorem ipsum dolor sit amet", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nisl lacus, lobortis vel nulla ut, bibendum suscipit magna. Phasellus efficitur risus et ante sodales fringilla. Morbi massa dui, tempor id luctus ac, maximus a orci. In sit amet eros scelerisque magna dictum laoreet. Nunc ac mauris sed tellus mollis ornare. Curabitur aliquet diam in sapien luctus auctor.", imagesrc: "https://placeimg.com/200/100/tech/grayscale" }
+];

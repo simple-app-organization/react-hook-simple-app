@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Show the Footer site Snapshots Matches the snapshot (with default params) 1`] = `
+<footer
+  className="partial footer"
+  style={
+    Object {
+      "borderTop": "solid thin black",
+    }
+  }
+>
+  <p>
+    This is the footer
+  </p>
+  <p>
+    This site is store in 
+    <a
+      href="https://github.com/Magicianred/react-simple-app"
+      target="_blank"
+    >
+      GitHub Repository 
+    </a>
+    .
+  </p>
+  <p>
+    It is a test in 
+    <a
+      className="App-link"
+      href="https://reactjs.org"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      React 
+    </a>
+    and 
+    <a
+      className="App-link"
+      href="https://react-bootstrap.github.io/"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Bootstrap-React 
+    </a>
+    under 
+    <a
+      href="https://github.com/Magicianred/react-simple-app/blob/master/LICENSE"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      MIT License
+    </a>
+    .
+  </p>
+  <p>
+    For the images I have used many placeholder image service.
+  </p>
+</footer>
+`;

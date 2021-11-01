@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Show a home page Snapshots Matches the snapshot (with default title) 1`] = `
+<div
+  className="page"
+>
+  <div
+    className="page home jumbotron"
+  >
+    <h2>
+      Home page
+    </h2>
+    <p>
+      This is the home page
+    </p>
+    <hr />
+    <div
+      className="carousel slide"
+      onKeyDown={[Function]}
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
+      onTouchEnd={[Function]}
+      onTouchStart={[Function]}
+    >
+      <ol
+        className="carousel-indicators"
+      >
+        <li
+          className="active"
+          onClick={[Function]}
+        />
+         
+        <li
+          className={null}
+          onClick={[Function]}
+        />
+         
+      </ol>
+      <div
+        className="carousel-inner"
+      >
+        <div
+          className="active carousel-item"
+        >
+          <img
+            alt="Welcome to new site!"
+            className="d-block w-100"
+            src="https://picsum.photos/200/100"
+          />
+          <div
+            className="carousel-caption"
+          >
+            <h3>
+              Welcome to new site!
+            </h3>
+            We are glade to present you our new web site
+          </div>
+        </div>
+        <div
+          className="carousel-item"
+        >
+          <img
+            alt="Lorem ipsum dolor sit amet"
+            className="d-block w-100"
+            src="https://placeimg.com/200/100/tech/grayscale"
+          />
+          <div
+            className="carousel-caption"
+          >
+            <h3>
+              Lorem ipsum dolor sit amet
+            </h3>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nisl lacus, lobortis vel nulla ut, bibendum suscipit magna. Phasellus efficitur risus et ante sodales fringilla. Morbi massa dui, tempor id luctus ac, maximus a orci. In sit amet eros scelerisque magna dictum laoreet. Nunc ac mauris sed tellus mollis ornare. Curabitur aliquet diam in sapien luctus auctor.
+          </div>
+        </div>
+      </div>
+      <a
+        className="carousel-control-prev"
+        href="#"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+      >
+        <span
+          aria-hidden="true"
+          className="carousel-control-prev-icon"
+        />
+        <span
+          className="sr-only"
+        >
+          Previous
+        </span>
+      </a>
+      <a
+        className="carousel-control-next"
+        href="#"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+      >
+        <span
+          aria-hidden="true"
+          className="carousel-control-next-icon"
+        />
+        <span
+          className="sr-only"
+        >
+          Next
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+`;

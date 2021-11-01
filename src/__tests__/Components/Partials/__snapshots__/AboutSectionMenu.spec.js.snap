@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Show the About Section Menu Snapshots Matches the snapshot (with default params) 1`] = `
+<header
+  className="partial about menu"
+  style={
+    Object {
+      "borderBottom": "solid thin black",
+      "borderTop": "solid thin black",
+    }
+  }
+>
+  <nav
+    className="justify-content-center navbar navbar-expand navbar-tabs"
+    fill="true"
+  >
+    <button
+      aria-controls="basic-navbar-nav"
+      aria-label="Toggle navigation"
+      className="navbar-toggler collapsed"
+      onClick={[Function]}
+      type="button"
+    >
+      <span
+        className="navbar-toggler-icon"
+      />
+    </button>
+    <div
+      aria-expanded={null}
+      className="navbar-collapse collapse"
+      id="basic-navbar-nav"
+    >
+      <div
+        className="mr-auto navbar-nav"
+        onKeyDown={[Function]}
+      >
+        <a
+          className="nav-link"
+          data-rb-event-key="/about"
+          href="/about"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+        >
+          About Us
+        </a>
+        <a
+          className="nav-link"
+          data-rb-event-key="/about/whoare"
+          href="/about/whoare"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+        >
+          Who Are
+        </a>
+        <a
+          className="nav-link"
+          data-rb-event-key="/about/whereare"
+          href="/about/whereare"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+        >
+          Where Are
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+`;

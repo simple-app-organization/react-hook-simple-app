@@ -1,0 +1,201 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Show the Header site Snapshots Matches the snapshot (with default title) 1`] = `
+<header
+  className="partial header"
+>
+  <nav
+    className="navbar navbar-expand navbar-light bg-light"
+  >
+    <a
+      className="navbar-brand"
+      href="/"
+    >
+      <img
+        alt="Default Site title logo"
+        className="d-inline-block align-top"
+        height="30"
+        src="logo.svg"
+        width="30"
+      />
+    </a>
+    <button
+      aria-controls="basic-navbar-nav"
+      aria-label="Toggle navigation"
+      className="navbar-toggler collapsed"
+      onClick={[Function]}
+      type="button"
+    >
+      <span
+        className="navbar-toggler-icon"
+      />
+    </button>
+    <div
+      aria-expanded={null}
+      className="navbar-collapse collapse"
+      id="basic-navbar-nav"
+    >
+      <div
+        className="mr-auto navbar-nav"
+        onKeyDown={[Function]}
+      >
+        <a
+          className="nav-link"
+          data-rb-event-key="/"
+          href="/"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+        >
+          Home
+        </a>
+        <a
+          className="nav-link"
+          data-rb-event-key="/about"
+          href="/about"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+        >
+          About Us
+        </a>
+        <a
+          className="nav-link"
+          data-rb-event-key="/contact"
+          href="/contact"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+        >
+          Contact Us
+        </a>
+        <a
+          className="nav-link"
+          data-rb-event-key="/abcdefg"
+          href="/abcdefg"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+        >
+          Not Found
+        </a>
+        <a
+          className="nav-link"
+          data-rb-event-key="/error"
+          href="/error"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+        >
+          Error Page
+        </a>
+        <a
+          className="nav-link"
+          data-rb-event-key="/docs"
+          href="/docs"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          target="_blank"
+        >
+          Docs [open new page]
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+`;
+
+exports[`Show the Header site Snapshots Matches the snapshot (with title: 'My App Title') 1`] = `
+<header
+  className="partial header"
+>
+  <nav
+    className="navbar navbar-expand navbar-light bg-light"
+  >
+    <a
+      className="navbar-brand"
+      href="/"
+    >
+      <img
+        alt="My App Title logo"
+        className="d-inline-block align-top"
+        height="30"
+        src="logo.svg"
+        width="30"
+      />
+    </a>
+    <button
+      aria-controls="basic-navbar-nav"
+      aria-label="Toggle navigation"
+      className="navbar-toggler collapsed"
+      onClick={[Function]}
+      type="button"
+    >
+      <span
+        className="navbar-toggler-icon"
+      />
+    </button>
+    <div
+      aria-expanded={null}
+      className="navbar-collapse collapse"
+      id="basic-navbar-nav"
+    >
+      <div
+        className="mr-auto navbar-nav"
+        onKeyDown={[Function]}
+      >
+        <a
+          className="nav-link"
+          data-rb-event-key="/"
+          href="/"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+        >
+          Home
+        </a>
+        <a
+          className="nav-link"
+          data-rb-event-key="/about"
+          href="/about"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+        >
+          About Us
+        </a>
+        <a
+          className="nav-link"
+          data-rb-event-key="/contact"
+          href="/contact"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+        >
+          Contact Us
+        </a>
+        <a
+          className="nav-link"
+          data-rb-event-key="/abcdefg"
+          href="/abcdefg"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+        >
+          Not Found
+        </a>
+        <a
+          className="nav-link"
+          data-rb-event-key="/error"
+          href="/error"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+        >
+          Error Page
+        </a>
+        <a
+          className="nav-link"
+          data-rb-event-key="/docs"
+          href="/docs"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          target="_blank"
+        >
+          Docs [open new page]
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+`;

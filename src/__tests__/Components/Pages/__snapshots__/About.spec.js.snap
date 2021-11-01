@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Show the About Us page Snapshots Matches the snapshot (with default params) 1`] = `
+<div
+  className="page"
+>
+  <div
+    className="page about jumbotron"
+  >
+    <h2>
+      About Us page
+    </h2>
+    <p>
+      This is the about us page
+    </p>
+    <hr />
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut est non mauris iaculis vulputate. Vivamus luctus sapien et nisl mattis consequat. Vestibulum nec varius sem. Curabitur aliquet sapien in diam efficitur euismod. Fusce molestie nibh vel suscipit eleifend. Suspendisse dignissim et lectus at tempus. Nam feugiat lorem ut pharetra porta. Duis hendrerit hendrerit metus, vel laoreet libero commodo sed. Curabitur nunc eros, venenatis et diam a, hendrerit volutpat neque. Aliquam tempus cursus efficitur. Proin consequat fringilla massa, vitae imperdiet nibh feugiat at. Nulla malesuada vestibulum dolor et euismod. Donec eu urna urna.
+    </p>
+    <p>
+      Sed imperdiet nunc eget ante aliquam auctor. Aliquam rhoncus quam sed sodales imperdiet. Aliquam erat volutpat. Sed mattis luctus pretium. Suspendisse tempor, nunc quis consectetur aliquam, metus orci porttitor augue, nec malesuada ipsum mauris eget tortor. Donec ut eleifend lorem. Quisque sagittis fermentum suscipit. Sed quis efficitur ex.
+    </p>
+    <p>
+      Sed eget neque ante. Aliquam euismod ac lectus quis tempor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam placerat consectetur felis ut fermentum. Ut a mauris vel erat porta congue. Sed ut fermentum nisl, ac maximus turpis. Nunc rutrum, ipsum vitae laoreet rutrum, purus mi fermentum leo, ut pulvinar velit urna id leo. Vivamus eu mi enim. Praesent ac ultrices mi, lacinia interdum dui. Morbi tempus vulputate lacus ac luctus. Aenean in arcu interdum, efficitur quam eu, suscipit felis.
+    </p>
+  </div>
+  <header
+    className="partial about menu"
+    style={
+      Object {
+        "borderBottom": "solid thin black",
+        "borderTop": "solid thin black",
+      }
+    }
+  >
+    <nav
+      className="justify-content-center navbar navbar-expand navbar-tabs"
+      fill="true"
+    >
+      <button
+        aria-controls="basic-navbar-nav"
+        aria-label="Toggle navigation"
+        className="navbar-toggler collapsed"
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          className="navbar-toggler-icon"
+        />
+      </button>
+      <div
+        aria-expanded={null}
+        className="navbar-collapse collapse"
+        id="basic-navbar-nav"
+      >
+        <div
+          className="mr-auto navbar-nav"
+          onKeyDown={[Function]}
+        >
+          <a
+            className="nav-link"
+            data-rb-event-key="/about"
+            href="/about"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+          >
+            About Us
+          </a>
+          <a
+            className="nav-link"
+            data-rb-event-key="/about/whoare"
+            href="/about/whoare"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+          >
+            Who Are
+          </a>
+          <a
+            className="nav-link"
+            data-rb-event-key="/about/whereare"
+            href="/about/whereare"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+          >
+            Where Are
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+</div>
+`;

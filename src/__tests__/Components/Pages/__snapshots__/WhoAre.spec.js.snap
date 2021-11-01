@@ -1,0 +1,200 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Show the Who Are page Snapshots Matches the snapshot (with default params) 1`] = `
+<div
+  className="page"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-sm-8"
+      >
+        <div
+          className="page whoare jumbotron"
+        >
+          <h2>
+            Who Are
+          </h2>
+          <p>
+            This is the who are page
+          </p>
+          <hr />
+          <p>
+            Nunc vitae gravida sem. Mauris erat velit, dapibus sit amet mi et, scelerisque tristique lorem. Quisque bibendum ligula et augue rhoncus hendrerit. Sed pharetra ligula quis leo accumsan eleifend. Pellentesque iaculis iaculis odio lobortis fermentum. Integer nec tincidunt odio, ornare aliquet eros. Nam vestibulum suscipit mauris, a consequat augue bibendum eu. Aenean viverra efficitur neque, sagittis mollis neque imperdiet vitae. Ut consectetur tristique risus, ut sodales nisi feugiat vel. Quisque tincidunt convallis consequat. Fusce malesuada sem et tortor fringilla lacinia. Nam elementum ligula vel luctus consectetur. Suspendisse sit amet egestas purus, vitae tristique dui. Sed convallis metus ac finibus sagittis. In nulla neque, facilisis in ex nec, pulvinar lobortis augue.
+          </p>
+          <div
+            className="list-group"
+            onKeyDown={[Function]}
+          >
+            <button
+              className="list-group-item list-group-item-action"
+              data-rb-event-key={null}
+              disabled={false}
+              onClick={[Function]}
+            >
+              Mario
+               
+              Rossi
+               
+              <span
+                className="badge badge-secondary"
+              >
+                show details
+              </span>
+            </button>
+            <button
+              className="list-group-item list-group-item-action"
+              data-rb-event-key={null}
+              disabled={false}
+              onClick={[Function]}
+            >
+              Maria
+               
+              Verdi
+               
+              <span
+                className="badge badge-secondary"
+              >
+                show details
+              </span>
+            </button>
+            <button
+              className="list-group-item list-group-item-action"
+              data-rb-event-key={null}
+              disabled={false}
+              onClick={[Function]}
+            >
+              Giovanni
+               
+              Giallo
+               
+              <span
+                className="badge badge-secondary"
+              >
+                show details
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-sm-4"
+      >
+        <div
+          className="person card"
+          style={
+            Object {
+              "margin": "20px",
+              "width": "18rem",
+            }
+          }
+        >
+          <img
+            className="card-img-top"
+            src="http://placebeard.it/g/200/200"
+            style={
+              Object {
+                "align": "center",
+                "height": "200px",
+                "padding": "20px",
+                "width": "200px",
+              }
+            }
+          />
+          <div
+            className="card-body"
+          >
+            <div
+              className="p_completename card-title h5"
+            >
+              Mario
+               
+              Rossi
+            </div>
+            <p
+              className="p_shortbio card-text"
+            >
+              orem ipsum dolor sit amet, consectetur adipiscing elit. 
+            </p>
+            <button
+              className="p_email btn btn-primary"
+              disabled={false}
+              type="button"
+            >
+              mariorossi@testemai.abc
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <header
+    className="partial about menu"
+    style={
+      Object {
+        "borderBottom": "solid thin black",
+        "borderTop": "solid thin black",
+      }
+    }
+  >
+    <nav
+      className="justify-content-center navbar navbar-expand navbar-tabs"
+      fill="true"
+    >
+      <button
+        aria-controls="basic-navbar-nav"
+        aria-label="Toggle navigation"
+        className="navbar-toggler collapsed"
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          className="navbar-toggler-icon"
+        />
+      </button>
+      <div
+        aria-expanded={null}
+        className="navbar-collapse collapse"
+        id="basic-navbar-nav"
+      >
+        <div
+          className="mr-auto navbar-nav"
+          onKeyDown={[Function]}
+        >
+          <a
+            className="nav-link"
+            data-rb-event-key="/about"
+            href="/about"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+          >
+            About Us
+          </a>
+          <a
+            className="nav-link"
+            data-rb-event-key="/about/whoare"
+            href="/about/whoare"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+          >
+            Who Are
+          </a>
+          <a
+            className="nav-link"
+            data-rb-event-key="/about/whereare"
+            href="/about/whereare"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+          >
+            Where Are
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+</div>
+`;

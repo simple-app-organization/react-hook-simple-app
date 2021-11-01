@@ -1,0 +1,318 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Show the Where Are page Snapshots Matches the snapshot (with default params) 1`] = `
+<div
+  className="page"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-sm-8"
+      >
+        <div
+          className="page whereare jumbotron"
+        >
+          <h2>
+            Where Are
+          </h2>
+          <p>
+            This is the where are page
+          </p>
+          <hr />
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut est non mauris iaculis vulputate. Vivamus luctus sapien et nisl mattis consequat. Vestibulum nec varius sem. Curabitur aliquet sapien in diam efficitur euismod. Fusce molestie nibh vel suscipit eleifend. Suspendisse dignissim et lectus at tempus. Nam feugiat lorem ut pharetra porta. Duis hendrerit hendrerit metus, vel laoreet libero commodo sed. Curabitur nunc eros, venenatis et diam a, hendrerit volutpat neque. Aliquam tempus cursus efficitur. Proin consequat fringilla massa, vitae imperdiet nibh feugiat at. Nulla malesuada vestibulum dolor et euismod. Donec eu urna urna.
+          </p>
+          <p>
+            Sed imperdiet nunc eget ante aliquam auctor. Aliquam rhoncus quam sed sodales imperdiet. Aliquam erat volutpat. Sed mattis luctus pretium. Suspendisse tempor, nunc quis consectetur aliquam, metus orci porttitor augue, nec malesuada ipsum mauris eget tortor. Donec ut eleifend lorem. Quisque sagittis fermentum suscipit. Sed quis efficitur ex.
+          </p>
+          <div
+            className="list-group list-group-flush"
+            onKeyDown={[Function]}
+          >
+            <div
+              className="list-group-item"
+              data-rb-event-key={null}
+              disabled={false}
+              onClick={[Function]}
+            >
+              legal office
+               
+              <span
+                className="badge badge-info"
+              >
+                U.S.A.
+              </span>
+            </div>
+            <div
+              className="list-group-item"
+              data-rb-event-key={null}
+              disabled={false}
+              onClick={[Function]}
+            >
+              operative office
+               
+              <span
+                className="badge badge-info"
+              >
+                Italy
+              </span>
+            </div>
+            <div
+              className="list-group-item"
+              data-rb-event-key={null}
+              disabled={false}
+              onClick={[Function]}
+            >
+              logistic office
+               
+              <span
+                className="badge badge-info"
+              >
+                Germany
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-sm-4"
+      >
+        <div
+          className="accordion"
+        >
+          <div
+            className="place card"
+          >
+            <div
+              className="card-header"
+            >
+              <button
+                className="btn btn-link"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <h4
+                  className="pl_title"
+                >
+                  legal office
+                </h4>
+              </button>
+            </div>
+            <div
+              aria-expanded={null}
+              className="collapse"
+            >
+              <div
+                className="card-body"
+              >
+                <p
+                  className="pl_description"
+                >
+                  Our legal office where we do burocratic stuffs
+                </p>
+                <dl>
+                  <dt>
+                    Phone
+                  </dt>
+                  <dd>
+                    +00102020
+                  </dd>
+                  <dt>
+                    Address
+                  </dt>
+                  <dd>
+                    New York City
+                  </dd>
+                  <dt>
+                    Country
+                  </dt>
+                  <dd>
+                    U.S.A.
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <div
+            className="place card"
+          >
+            <div
+              className="card-header"
+            >
+              <button
+                className="btn btn-link"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <h4
+                  className="pl_title"
+                >
+                  operative office
+                </h4>
+              </button>
+            </div>
+            <div
+              aria-expanded={null}
+              className="collapse"
+            >
+              <div
+                className="card-body"
+              >
+                <p
+                  className="pl_description"
+                >
+                  Our operative office where we do pratical stuffs
+                </p>
+                <dl>
+                  <dt>
+                    Phone
+                  </dt>
+                  <dd>
+                    +003902020
+                  </dd>
+                  <dt>
+                    Address
+                  </dt>
+                  <dd>
+                    Milan
+                  </dd>
+                  <dt>
+                    Country
+                  </dt>
+                  <dd>
+                    Italy
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <div
+            className="place card"
+          >
+            <div
+              className="card-header"
+            >
+              <button
+                className="btn btn-link"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <h4
+                  className="pl_title"
+                >
+                  logistic office
+                </h4>
+              </button>
+            </div>
+            <div
+              aria-expanded={null}
+              className="collapse"
+            >
+              <div
+                className="card-body"
+              >
+                <p
+                  className="pl_description"
+                >
+                  Our logistic office where we do delivery operations
+                </p>
+                <dl>
+                  <dt>
+                    Phone
+                  </dt>
+                  <dd>
+                    +0042102020
+                  </dd>
+                  <dt>
+                    Address
+                  </dt>
+                  <dd>
+                    Hamburg
+                  </dd>
+                  <dt>
+                    Country
+                  </dt>
+                  <dd>
+                    Germany
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <header
+    className="partial about menu"
+    style={
+      Object {
+        "borderBottom": "solid thin black",
+        "borderTop": "solid thin black",
+      }
+    }
+  >
+    <nav
+      className="justify-content-center navbar navbar-expand navbar-tabs"
+      fill="true"
+    >
+      <button
+        aria-controls="basic-navbar-nav"
+        aria-label="Toggle navigation"
+        className="navbar-toggler collapsed"
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          className="navbar-toggler-icon"
+        />
+      </button>
+      <div
+        aria-expanded={null}
+        className="navbar-collapse collapse"
+        id="basic-navbar-nav"
+      >
+        <div
+          className="mr-auto navbar-nav"
+          onKeyDown={[Function]}
+        >
+          <a
+            className="nav-link"
+            data-rb-event-key="/about"
+            href="/about"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+          >
+            About Us
+          </a>
+          <a
+            className="nav-link"
+            data-rb-event-key="/about/whoare"
+            href="/about/whoare"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+          >
+            Who Are
+          </a>
+          <a
+            className="nav-link"
+            data-rb-event-key="/about/whereare"
+            href="/about/whereare"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+          >
+            Where Are
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+</div>
+`;

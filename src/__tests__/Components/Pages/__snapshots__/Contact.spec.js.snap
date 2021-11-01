@@ -1,0 +1,253 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Show the Contact Us page Snapshots Matches the snapshot (with default title) 1`] = `
+<div
+  className="page"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-sm-12"
+      >
+        <h2>
+          Contact page
+        </h2>
+        <p>
+          This is the contact page
+        </p>
+        <hr />
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-sm-6"
+      >
+        <form
+          className=""
+          noValidate={true}
+        >
+          <div
+            className="row"
+          >
+            <div
+              className="col"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="form-label"
+                  htmlFor="firstName"
+                >
+                  First Name
+                </label>
+                <input
+                  className="form-control"
+                  id="firstName"
+                  onChange={[Function]}
+                  placeholder="First name"
+                  required={true}
+                />
+                <small
+                  className="text-muted form-text"
+                >
+                  <span
+                    className="badge badge-danger"
+                  >
+                    Field is required
+                  </span>
+                </small>
+              </div>
+            </div>
+            <div
+              className="col"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="form-label"
+                  htmlFor="lastName"
+                >
+                  Last Name
+                </label>
+                <input
+                  className="form-control"
+                  id="lastName"
+                  onChange={[Function]}
+                  placeholder="Last name"
+                  required={true}
+                />
+                <small
+                  className="text-muted form-text"
+                >
+                  <span
+                    className="badge badge-danger"
+                  >
+                    Field is required
+                  </span>
+                </small>
+              </div>
+            </div>
+          </div>
+          <div
+            className="row"
+          >
+            <div
+              className="col"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="form-label"
+                  htmlFor="email"
+                >
+                  Email address
+                </label>
+                <input
+                  className="form-control"
+                  id="email"
+                  onChange={[Function]}
+                  placeholder="Enter your email"
+                  required={true}
+                  type="email"
+                />
+                <small
+                  className="text-muted form-text"
+                >
+                  <span
+                    className="badge badge-danger"
+                  >
+                    Field is empty or invalid
+                  </span>
+                </small>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="form-label"
+                  htmlFor="message"
+                >
+                  Say something to us
+                </label>
+                <textarea
+                  className="form-control"
+                  id="message"
+                  onChange={[Function]}
+                  required={true}
+                  rows="3"
+                />
+                <small
+                  className="text-muted form-text"
+                >
+                  <span
+                    className="badge badge-danger"
+                  >
+                    Field is required
+                  </span>
+                </small>
+              </div>
+              <div
+                className="form-group"
+              >
+                <div
+                  className="form-check"
+                >
+                  <input
+                    className="form-check-input"
+                    disabled={false}
+                    id="privacy"
+                    onChange={[Function]}
+                    required={true}
+                    type="checkbox"
+                  />
+                  <label
+                    className="form-check-label"
+                    htmlFor="privacy"
+                    title=""
+                  >
+                    Accept your privacy condition
+                  </label>
+                </div>
+                <small
+                  className="text-muted form-text"
+                >
+                  <span
+                    className="badge badge-danger"
+                  >
+                    Field is required
+                  </span>
+                </small>
+              </div>
+              <button
+                className="btn btn-primary"
+                disabled={true}
+                onClick={[Function]}
+                type="button"
+              >
+                Send message
+              </button>
+              <br />
+              <span
+                className="badge badge-danger"
+              >
+                You have errors in form
+              </span>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div
+        className="col-sm-6"
+      >
+        <div
+          className="contact jumbotron"
+        >
+          <div>
+            <p>
+              This form do not send any emails, this is only for a test purpose.
+            </p>
+            <h4>
+              Show the data you would send
+            </h4>
+            <dl>
+              <dt>
+                First name
+              </dt>
+              <dd />
+              <dt>
+                Last name
+              </dt>
+              <dd />
+              <dt>
+                Email
+              </dt>
+              <dd />
+              <dt>
+                Message
+              </dt>
+              <dd>
+                <p />
+              </dd>
+              <dt>
+                Privacy
+              </dt>
+              <dd>
+                no
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

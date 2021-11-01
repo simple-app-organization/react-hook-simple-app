@@ -1,0 +1,8 @@
+[
+    { "title":"Home Page", "name":"home", "path":"/", "component":"Home" },
+    { "title":"Who Are", "name":"whoare", "path":"/whoare", "component":"WhoAre" },
+    { "title":"Contact Us", "name":"contact", "path":"/contact", "component":"Contact", "pages": [
+        { "title":"Where Are", "name":"whereare", "path":"/whereare", "component":"WhereAre" },
+        { "title":"Careers", "name":"carrers", "path":"/carrers", "component":"Carrers" }
+    ]}
+]

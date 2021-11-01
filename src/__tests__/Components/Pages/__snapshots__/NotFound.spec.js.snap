@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Show the Not Found page Snapshots Matches the snapshot (with default title) 1`] = `
+<div
+  className="page"
+>
+  <div
+    className="page notfound jumbotron"
+  >
+    <h2>
+      404 Page not found
+    </h2>
+    <p>
+      The page is not found
+    </p>
+  </div>
+</div>
+`;
