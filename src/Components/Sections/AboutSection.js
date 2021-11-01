@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, withRouter } from 'react-router-dom';
+import { Route, useRouteMatch } from 'react-router-dom';
 import About from '../Pages/About';
 import WhoAre from '../Pages/WhoAre';
 import WhereAre from '../Pages/WhereAre';
@@ -13,12 +13,14 @@ import WhereAre from '../Pages/WhereAre';
  *   <AboutSection />
  * )
  */
-const AboutSection = withRouter(props =>
-    <>
-        <Route exact path={`${props.match.url}`} component={About} />
-        <Route exact path={`${props.match.url}/whoare`} component={WhoAre} />
-        <Route exact path={`${props.match.url}/whereare`} component={WhereAre} />
-    </>
-);
+const AboutSection = () => {
+    const match = useRouteMatch();
+
+    return (<>
+            <Route exact path={`${match.url}`} component={About} />
+            <Route exact path={`${match.url}/whoare`} component={WhoAre} />
+            <Route exact path={`${match.url}/whereare`} component={WhereAre} />
+        </>);
+    };
 
 export default AboutSection;

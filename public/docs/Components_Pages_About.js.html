@@ -27,7 +27,7 @@
 
 <nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="AboutSection.html">AboutSection</a></li><li><a href="AboutSectionMenu.html">AboutSectionMenu</a></li><li><a href="Contact.html">Contact</a></li><li><a href="ContactConfirm.html">ContactConfirm</a></li><li><a href="Error.html">Error</a></li><li><a href="Footer.html">Footer</a></li><li><a href="FormValidateMessage.html">FormValidateMessage</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="HomeMessage.html">HomeMessage</a></li><li></li><li><a href="NotFound.html">NotFound</a></li><li><a href="Person.html">Person</a></li><li></li><li><a href="Place.html">Place</a></li><li></li><li><a href="SiteRoutes.html">SiteRoutes</a></li><li><a href="WhereAre.html">WhereAre</a></li><li><a href="WhoAre.html">WhoAre</a></li></ul><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#siteName">siteName</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="AboutSection.html">AboutSection</a></li><li><a href="AboutSectionMenu.html">AboutSectionMenu</a></li><li><a href="Contact.html">Contact</a></li><li><a href="Error.html">Error</a></li><li><a href="Footer.html">Footer</a></li><li><a href="FormValidateMessage.html">FormValidateMessage</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="HomeMessage.html">HomeMessage</a></li><li></li><li><a href="module.exports.html">exports</a></li><li><a href="NotFound.html">NotFound</a></li><li><a href="Person.html">Person</a></li><li></li><li><a href="Place.html">Place</a></li><li></li><li><a href="SiteRoutes.html">SiteRoutes</a></li><li><a href="WhereAre.html">WhereAre</a></li><li><a href="WhoAre.html">WhoAre</a></li></ul><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#siteName">siteName</a></li></ul>
 </nav>
 
 <div id="main">
@@ -42,7 +42,7 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React, { Component } from 'react';
+            <pre class="prettyprint source linenums"><code>import React from 'react';
 import AboutSectionMenu from './../Partials/AboutSectionMenu';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 
@@ -55,26 +55,27 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
  *   &lt;About />
  * )
  */
-class About extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         match: props.match
-    //     };
-    // }
+const About = () => {
 
-    render() {
-        // let { match } = this.state;
-        return (
-            &lt;div className="page">
-                &lt;Jumbotron className="page about">
-                    &lt;h2>About Us page&lt;/h2>
-                    &lt;p>This is the about us page&lt;/p>
-                &lt;/Jumbotron>
-                &lt;AboutSectionMenu />
-            &lt;/div>
-        );
-    }
+    return (
+        &lt;div className="page">
+            &lt;Jumbotron className="page about">
+                &lt;h2>About Us page&lt;/h2>
+                &lt;p>This is the about us page&lt;/p>
+                &lt;hr />
+                &lt;p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut est non mauris iaculis vulputate. Vivamus luctus sapien et nisl mattis consequat. Vestibulum nec varius sem. Curabitur aliquet sapien in diam efficitur euismod. Fusce molestie nibh vel suscipit eleifend. Suspendisse dignissim et lectus at tempus. Nam feugiat lorem ut pharetra porta. Duis hendrerit hendrerit metus, vel laoreet libero commodo sed. Curabitur nunc eros, venenatis et diam a, hendrerit volutpat neque. Aliquam tempus cursus efficitur. Proin consequat fringilla massa, vitae imperdiet nibh feugiat at. Nulla malesuada vestibulum dolor et euismod. Donec eu urna urna.
+                &lt;/p>
+                &lt;p>
+                    Sed imperdiet nunc eget ante aliquam auctor. Aliquam rhoncus quam sed sodales imperdiet. Aliquam erat volutpat. Sed mattis luctus pretium. Suspendisse tempor, nunc quis consectetur aliquam, metus orci porttitor augue, nec malesuada ipsum mauris eget tortor. Donec ut eleifend lorem. Quisque sagittis fermentum suscipit. Sed quis efficitur ex.
+                &lt;/p>
+                &lt;p>
+                    Sed eget neque ante. Aliquam euismod ac lectus quis tempor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam placerat consectetur felis ut fermentum. Ut a mauris vel erat porta congue. Sed ut fermentum nisl, ac maximus turpis. Nunc rutrum, ipsum vitae laoreet rutrum, purus mi fermentum leo, ut pulvinar velit urna id leo. Vivamus eu mi enim. Praesent ac ultrices mi, lacinia interdum dui. Morbi tempus vulputate lacus ac luctus. Aenean in arcu interdum, efficitur quam eu, suscipit felis.
+                &lt;/p>
+            &lt;/Jumbotron>
+            &lt;AboutSectionMenu />
+        &lt;/div>
+    );
 }
 
 export default About;</code></pre>
@@ -91,7 +92,7 @@ export default About;</code></pre>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Sat Mar 21 2020 10:05:56 GMT+0100 (Central European Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Mon Nov 01 2021 10:46:49 GMT+0100 (Central European Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

@@ -15,7 +15,7 @@ const siteName = 'Simple App React';
  * This fuction startup the application
  * @function App
  */
-function App() {
+const App = () => {
   return (
     <Container className="App">
       <Header title={siteName} />
